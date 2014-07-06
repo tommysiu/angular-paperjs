@@ -50,18 +50,19 @@ myApp.directive('board', ['$timeout', function(timer) {
 
         // draw the board
         var size = parseInt(scope.boardSize);
+        var width = element.offsetWidth;
         var margin;
         switch (size) {
         case 9:
-          margin = element.width * 0.08;
+          margin = width * 0.08;
           break;
         case 13:
-          margin = element.width * 0.05;
+          margin = width * 0.05;
           break;
         default:
-          margin = element.width * 0.033;
+          margin = width * 0.033;
         }
-        scope.interval = (element.width - 2 * margin) / (size - 1);
+        scope.interval = (width - 2 * margin) / (size - 1);
 
         // store the coordinates for mouse event detection
         scope.coord = [];
